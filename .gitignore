@@ -1,0 +1,5 @@
+*.osm.pbf
+*.locations
+*.partial
+__pycache__/
+.env
