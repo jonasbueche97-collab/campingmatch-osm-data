@@ -9,3 +9,7 @@ The workflow deliberately refuses private repositories. Standard ubuntu-24.04 ru
 Manual run: install Python 3.12+, `python -m pip install -r requirements.txt`, then `python extract.py OUTPUT_DIRECTORY`.
 
 This repository provides data. It has no private Site credential and cannot by itself import into a private Site. Secure synchronization must be configured and tested separately. A green extraction run does not prove private Site persistence.
+
+## Verified execution
+
+GitHub Actions run https://github.com/jonasbueche97-collab/campingmatch-osm-data/actions/runs/40471503372 succeeded on 2026-10-27. Both regional PBF files were downloaded and 157 Garda OSM objects extracted; the data SHA-256 is 3adba690824c418b43f13f95235c3e4f59bf558fabb0faf3b9cb47b36e32ad71. This push-triggered execution validates the workflow; the first scheduled recurrence is a separate future event. Read data/manifest.json for source timestamps and license.
