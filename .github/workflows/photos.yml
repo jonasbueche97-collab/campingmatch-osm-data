@@ -1,0 +1,34 @@
+name: Licensed campsite photos
+on:
+  push:
+    paths:
+      - resolve_photos.py
+      - .github/workflows/photos.yml
+  workflow_run:
+    workflows: ["OSM regional public data"]
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: osm-garda
+  cancel-in-progress: false
+jobs:
+  photos:
+    if: github.event.repository.private == false && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python resolve_photos.py data
+      - name: Publish verified public image references
+        run: |
+          git config user.name 'OSM data updater'
+          git config user.email 'osm-data@users.noreply.github.com'
+          git add data/photos.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Update verified Commons image references'
+          git push
