@@ -32,7 +32,11 @@ def main(folder):
  for f in ['garda.json','argeles.json','costa-brava.json']:
   if (folder/f).exists():camps.extend(json.loads((folder/f).read_text())['elements'])
  # At most 40 public lookups per run; rotate so every camp is eventually checked.
- offset=(datetime.date.today().toordinal()*40)%max(1,len(camps));camps=(camps[offset:]+camps[:offset])[:40]
+ priority_ids={'osm-way-33430792','osm-way-40460962','osm-way-116797799','osm-way-124058798'}
+ priority=[c for c in camps if f"osm-{c['type']}-{c['id']}" in priority_ids]
+ remaining=[c for c in camps if c not in priority]
+ slots=max(0,40-len(priority));offset=(datetime.date.today().toordinal()*slots)%max(1,len(remaining))
+ camps=priority+(remaining[offset:]+remaining[:offset])[:slots]
  for c in camps:
   try:
    name=re.sub(r'[^\w -]','',c['tags']['name'])[:100]
