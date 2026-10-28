@@ -20,9 +20,14 @@ def select(camp,pages):
   license_url=v('LicenseUrl').replace('http://','https://',1)
   if urllib.parse.urlparse(license_url).hostname!='creativecommons.org':continue
   out.append({'campsiteId':f"osm-{camp['type']}-{camp['id']}",'title':p['title'],'filePage':'https://commons.wikimedia.org/wiki/'+urllib.parse.quote(p['title'].replace(' ','_'),safe=':'),'author':author,'license':license,'licenseUrl':license_url,'thumbnail':thumb,'image':thumb,'originalUrl':original,'originalDate':v('DateTimeOriginal') or 'Aufnahmedatum unbekannt','verifiedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'association':{'type':'exact_name_and_coordinates','distanceApproxM':round(distance(center['lat'],center['lon'],close[0]['lat'],close[0]['lon']))},'changes':'Vorschaubild verkleinert; keine inhaltliche Bearbeitung.'})
- return out[:2]
+ return out[:6]
 def main(folder):
  folder=pathlib.Path(folder);state={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'provider':'Wikimedia Commons','records':{},'checked':0,'errors':[]}
+ # Retain accepted results across rotating batches; failed lookups never erase them.
+ previous={}
+ if (folder/'photos.json').exists():
+  previous=json.loads((folder/'photos.json').read_text()).get('records',{})
+ state['records']=previous
  camps=[]
  for f in ['garda.json','argeles.json','costa-brava.json']:
   if (folder/f).exists():camps.extend(json.loads((folder/f).read_text())['elements'])
@@ -38,7 +43,10 @@ def main(folder):
     if len(raw)>500000:raise ValueError('Response cap')
     data=json.loads(raw)
    if 'error' in data:raise ValueError(str(data['error'])[:200])
-   cid=f"osm-{c['type']}-{c['id']}";state['records'][cid]=select(c,list(data.get('query',{}).get('pages',{}).values()));state['checked']+=1
+   cid=f"osm-{c['type']}-{c['id']}";found=select(c,list(data.get('query',{}).get('pages',{}).values()))
+   accepted={p['filePage']:p for p in state['records'].get(cid,[]) if p.get('association',{}).get('type')=='exact_name_and_coordinates'}
+   accepted.update({p['filePage']:p for p in found})
+   state['records'][cid]=list(accepted.values())[:6];state['checked']+=1
   except Exception as e:state['errors'].append(str(e)[:200])
   time.sleep(1)
  (folder/'photos.json').write_text(json.dumps(state,ensure_ascii=False))
