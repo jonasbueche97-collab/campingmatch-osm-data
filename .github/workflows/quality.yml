@@ -1,0 +1,31 @@
+name: Open official campsite quality
+on:
+  push:
+    paths: [quality.py, .github/workflows/quality.yml]
+  schedule:
+    - cron: '15 6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: osm-garda
+  cancel-in-progress: false
+jobs:
+  quality:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python quality.py
+      - name: Publish open official subset
+        run: |
+          git config user.name 'OSM data updater'
+          git config user.email 'osm-data@users.noreply.github.com'
+          git add data/quality.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Update official open camping classifications'
+          git push
