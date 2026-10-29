@@ -1,13 +1,13 @@
 {
   "mode": "real-geofabrik-pbf-extraction",
   "regionId": "argeles",
-  "at": "2026-10-28T11:39:47.225681+00:00",
+  "at": "2026-10-29T11:50:55.235120+00:00",
   "sources": [
     {
       "url": "https://download.geofabrik.de/europe/france/languedoc-roussillon-latest.osm.pbf",
-      "bytes": 270598428,
-      "sha256": "041055d39be5646b96f74ba970dd6bde436f5eb404f30d3111a706ae538148b5",
-      "lastModified": "Wed, 28 Oct 2026 02:35:59 GMT"
+      "bytes": 270616790,
+      "sha256": "04643dae6c438f7c67ee771a9f8857b520971865add18bd16f5c1ac6afe1465c",
+      "lastModified": "Thu, 29 Oct 2026 04:03:48 GMT"
     }
   ],
   "records": 59,
