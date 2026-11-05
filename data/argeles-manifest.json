@@ -1,18 +1,18 @@
 {
   "mode": "real-geofabrik-pbf-extraction",
   "regionId": "argeles",
-  "at": "2026-10-31T11:14:33.989663+00:00",
+  "at": "2026-11-05T13:35:35.325732+00:00",
   "sources": [
     {
       "url": "https://download.geofabrik.de/europe/france/languedoc-roussillon-latest.osm.pbf",
-      "bytes": 270659568,
-      "sha256": "1ce837f08cab72d2604b7499c74b5554a49f493121f2a593484636804e0df522",
-      "lastModified": "Sat, 31 Oct 2026 10:34:58 GMT"
+      "bytes": 270755819,
+      "sha256": "6f9a32c74ec9301b50788680e327d4ead506477f6206875ca6e2928e47822184",
+      "lastModified": "Wed, 04 Nov 2026 13:53:27 GMT"
     }
   ],
   "records": 59,
-  "bytes": 51754,
-  "sha256": "0bd2c67eee686f019db793bf8aa2d7cd8e722816de9ac34e9cf95b641975e364",
+  "bytes": 51732,
+  "sha256": "2afd484e6d60df6bac6e400a46d8380b7733197a68147b3795d9ea93d29a55e4",
   "attribution": "\u00a9 OpenStreetMap contributors",
   "license": "https://opendatacommons.org/licenses/odbl/1-0/",
   "bounds": [
