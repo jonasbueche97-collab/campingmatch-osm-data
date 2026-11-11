@@ -1,7 +1,7 @@
 {
   "mode": "real-geofabrik-pbf-extraction",
   "regionId": "garda",
-  "at": "2026-11-10T13:54:31.072256+00:00",
+  "at": "2026-11-11T13:00:19.492334+00:00",
   "sources": [
     {
       "url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf",
