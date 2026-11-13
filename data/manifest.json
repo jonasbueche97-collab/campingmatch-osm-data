@@ -1,19 +1,19 @@
 {
   "mode": "real-geofabrik-pbf-extraction",
   "regionId": "garda",
-  "at": "2026-11-12T14:04:08.160172+00:00",
+  "at": "2026-11-13T13:26:59.332972+00:00",
   "sources": [
     {
       "url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf",
-      "bytes": 627114221,
-      "sha256": "efa08d9d14e3e25a03978e9e357d9fb13386e83a57823d4a1de1b5f4ac48c07a",
-      "lastModified": "Thu, 12 Nov 2026 05:49:54 GMT"
+      "bytes": 627169036,
+      "sha256": "78b1deb3ece8fe0fb84308c1a5d081eaf59e0f34e15b7056206b92995b91bb42",
+      "lastModified": "Fri, 13 Nov 2026 00:07:19 GMT"
     },
     {
       "url": "https://download.geofabrik.de/europe/italy/nord-ovest-latest.osm.pbf",
-      "bytes": 595259592,
-      "sha256": "62dd9526f9117b1de999ee295c9d91bd92500f3b1db97cf8410766227fa0f9f5",
-      "lastModified": "Thu, 12 Nov 2026 05:51:52 GMT"
+      "bytes": 595340748,
+      "sha256": "4632bdc78bfc04accc98a99aa20d64fa491f0091565982c938bb58c6df41ab83",
+      "lastModified": "Fri, 13 Nov 2026 00:07:21 GMT"
     }
   ],
   "records": 157,

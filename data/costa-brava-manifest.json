@@ -1,13 +1,13 @@
 {
   "mode": "real-geofabrik-pbf-extraction",
   "regionId": "costa-brava",
-  "at": "2026-11-12T14:10:18.698128+00:00",
+  "at": "2026-11-13T13:32:15.410823+00:00",
   "sources": [
     {
       "url": "https://download.geofabrik.de/europe/spain/cataluna-latest.osm.pbf",
-      "bytes": 273409044,
-      "sha256": "d7614c3dce230082f9b1fab0e9e9f8cb1f415e7682f64cee1398b0dbb5dd7214",
-      "lastModified": "Thu, 12 Nov 2026 05:45:25 GMT"
+      "bytes": 273536799,
+      "sha256": "fc7c0e6d4e59a2d77a652f56bd9019e4d3ab2c1f1cac8feaba1ff9b7fbd01b10",
+      "lastModified": "Fri, 13 Nov 2026 02:45:11 GMT"
     }
   ],
   "records": 77,
