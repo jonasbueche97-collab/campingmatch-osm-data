@@ -1,24 +1,24 @@
 {
   "mode": "real-geofabrik-pbf-extraction",
   "regionId": "garda",
-  "at": "2026-11-15T13:03:35.060679+00:00",
+  "at": "2026-11-19T14:47:01.465887+00:00",
   "sources": [
     {
       "url": "https://download.geofabrik.de/europe/italy/nord-est-latest.osm.pbf",
-      "bytes": 627260268,
-      "sha256": "59d29075c6bc49a70a582c8b33d3aad74e84aa66cdc88219a975252d2fffc405",
-      "lastModified": "Sun, 15 Nov 2026 03:58:43 GMT"
+      "bytes": 627420719,
+      "sha256": "edbb70595830b19021c3bb445f5b48f87f32cec96b1f7316b4723e20ccabbd80",
+      "lastModified": "Thu, 19 Nov 2026 08:01:27 GMT"
     },
     {
       "url": "https://download.geofabrik.de/europe/italy/nord-ovest-latest.osm.pbf",
-      "bytes": 595473987,
-      "sha256": "8b68eed2f4325134d89683ff3b01ef0fdf14647f88f3c720e71668887092debd",
-      "lastModified": "Sun, 15 Nov 2026 04:01:16 GMT"
+      "bytes": 595698628,
+      "sha256": "4b6a851be001a34aacc3d861b9dbe196436a3e3ca506b67c567ed81d899e320e",
+      "lastModified": "Thu, 19 Nov 2026 08:12:55 GMT"
     }
   ],
   "records": 157,
-  "bytes": 238592,
-  "sha256": "bcfae4dcca314e8f8e2661e7fde28b14563427ac99c095bb980406359f951b25",
+  "bytes": 238589,
+  "sha256": "f66ad6aa3dedc905d137ea652a6b64df6f0b35de07ca00e1460c5c32f4372ff1",
   "attribution": "\u00a9 OpenStreetMap contributors",
   "license": "https://opendatacommons.org/licenses/odbl/1-0/",
   "bounds": [
